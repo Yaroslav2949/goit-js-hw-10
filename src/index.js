@@ -20,23 +20,36 @@ fetchBreeds().then(data => {
   data.forEach(element => {
     arrBreedsId.push({ text: element.name, value: element.id });
   });
+
   new SlimSelect({
     select: selector,
-    data: arrBreedsId,
+    data: arrBreedsId
   });
 });
-// .catch(onFetchError);
+
+
+
 
 selector.addEventListener('change', onSelectBreed);
 
-function onSelectBreed(evt) {
-  const breedId = evt.currentTarget.value;
+function onSelectBreed(event) {
+   
+    const breedId = event.currentTarget.value;
+    fetchCatByBreed(breedId)
+    .then((data) => {(divCatInfo.innerHTML=createMarkup())
+       
+    })
+    // .catch(onFetchError);
+};
 
-//   fetchCatByBreed(breedId).then(data => console.log(data));
 
-fetchCatByBreed(breedId).then(data => (divCatInfo.innerHTML= createMarkup(data.breeds.url))) ;
+   
 
-}
+
+
+
+
+
 
 function createMarkup(arr) {
   return arr.map(

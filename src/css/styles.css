@@ -59,38 +59,23 @@ h1 {
     background: #FF3D00;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   }
-  .loader::after {
-    content: '';  
-    box-sizing: border-box;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background: #FFF;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  }
-  @keyframes rotationBack {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(-360deg);
-    }
-   }
 
 
-.cat-info {
-   
-} 
 
 .box-img {
     display: flex;
     align-items: center;
 }
-
-.box-discribe {
+.cat-info {
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  background-color: #e5f3f2;
+  border: 1px solid #0d161b;
+}
+.box {
     width: 400px;
 }

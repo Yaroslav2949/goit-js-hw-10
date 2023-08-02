@@ -7,7 +7,7 @@ export function fetchBreeds() {
   .then(resp => {
    
     if (!resp.ok) {
-      throw new Error(resp.statusText);
+      throw new Error(resp.status);
     }
     return resp.json();
   });
@@ -19,7 +19,7 @@ export function fetchCatByBreed(breedId){
     .then(resp => {
    
         if (!resp.ok) {
-          throw new Error(resp.statusText);
+          throw new Error(resp.status);
         }
         return resp.json();
       });
