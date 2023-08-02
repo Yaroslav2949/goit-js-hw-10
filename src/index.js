@@ -35,30 +35,22 @@ selector.addEventListener('change', onSelectBreed);
 function onSelectBreed(event) {
    
     const breedId = event.currentTarget.value;
-    fetchCatByBreed(breedId)
-    .then((data) => {(divCatInfo.innerHTML=createMarkup())
+    // fetchCatByBreed(breedId)
+    // .then((data) => {(divCatInfo.innerHTML=createMarkup())
        
-    })
+    // })
     // .catch(onFetchError);
 };
 
 
-   
-
-
-
-
-
-
-
-function createMarkup(arr) {
-  return arr.map(
-    ({url, breeds:{name,description,temperament }}) =>
-      `<div class="box-img"><img src="${url}" alt="${breeds.name}" width="400"/></div>
-      <div class="box">
-      <h1>${breeds.name}</h1>
-      <p>${breeds.description}</p>
-      <p><b>Temperament:</b> ${breeds.temperament}</p>
-      </div>`
-  ).join('')
-}
+// function createMarkup(arr) {
+//   return arr.map(
+//     ({url, breeds:{name,description,temperament }}) =>
+//       `<div class="box-img"><img src="${url}" alt="${breeds.name}" width="400"/></div>
+//       <div class="box">
+//       <h1>${breeds.name}</h1>
+//       <p>${breeds.description}</p>
+//       <p><b>Temperament:</b> ${breeds.temperament}</p>
+//       </div>`
+//   ).join('')
+// }
