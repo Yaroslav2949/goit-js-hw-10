@@ -23,34 +23,38 @@ fetchBreeds().then(data => {
 
   new SlimSelect({
     select: selector,
-    data: arrBreedsId
+    data: arrBreedsId,
   });
 });
-
-
-
 
 selector.addEventListener('change', onSelectBreed);
 
 function onSelectBreed(event) {
-   
-    const breedId = event.currentTarget.value;
-    // fetchCatByBreed(breedId)
-    // .then((data) => {(divCatInfo.innerHTML=createMarkup())
-       
-    // })
-    // .catch(onFetchError);
+  const breedId = event.currentTarget.value;
+  fetchCatByBreed(breedId)
+  .then(data =>console.log (data))
+  
+  .then(data => (divCatInfo.innerHTML=createMarkup(data[0]))
+  
+  )
+  .catch(onFetchError);
 };
 
-
-// function createMarkup(arr) {
-//   return arr.map(
-//     ({url, breeds:{name,description,temperament }}) =>
-//       `<div class="box-img"><img src="${url}" alt="${breeds.name}" width="400"/></div>
-//       <div class="box">
-//       <h1>${breeds.name}</h1>
-//       <p>${breeds.description}</p>
-//       <p><b>Temperament:</b> ${breeds.temperament}</p>
-//       </div>`
-//   ).join('')
-// }
+function createMarkup(arr) {
+  
+  return arr.map(
+    ({[0]:{url}, [0]:{breeds,[0]:{name,description,temperament }}}) =>
+      `<div class="box-img"><img src="${url}" alt="${breeds[0].name}" width="400"/></div>
+      <div class="box">
+      <h1>${breeds[0].name}</h1>
+      <p>${breeds[0].description}</p>
+      <p><b>Temperament:</b> ${breeds[0].temperament}</p>
+      </div>`
+  ).join('')
+}
+function onFetchError(error){
+  Notify.failure( `Oops! Something went wrong! Try reloading the page!`,{
+    timeout:5000,
+    position: 'center-center',
+  });
+};
