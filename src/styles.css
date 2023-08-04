@@ -30,7 +30,7 @@ h1 {
   margin: auto;
 }
 
-.loader {
+/* .loader {
   width: 48px;
   height: 48px;
   background: #ff3d00;
@@ -51,7 +51,7 @@ h1 {
   height: 48px;
   background: #ff3d00;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .box-img {
   display: flex;
